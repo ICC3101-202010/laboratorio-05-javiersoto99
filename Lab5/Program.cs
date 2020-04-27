@@ -4,6 +4,7 @@ using System.Threading;
 
 namespace Solucion_Lab_21_abril
 {
+ 
     class Program
     {
         static void Main(string[] args)
@@ -13,6 +14,7 @@ namespace Solucion_Lab_21_abril
             Server server = new Server(database);
             MailSender mailSender = new MailSender();
             SMSSender smsSender = new SMSSender();
+            var user = new User();
 
 
             //Suscribir los que escuchan los eventos
@@ -25,6 +27,9 @@ namespace Solucion_Lab_21_abril
             //3- Suscribir OnCambiadaContrasena de smsSender para que escuche el evento CambiadaContrasena enviado por servidor
             server.PasswordChanged += smsSender.OnPasswordChanged;
 
+            mailSender.EmailSent += user.OnEmailSent;
+
+            user.EmailVerified += server.OnEmailVerified;
 
             // Controla la ejecucion mientras el usuario no quiera salir
             bool exec = true;

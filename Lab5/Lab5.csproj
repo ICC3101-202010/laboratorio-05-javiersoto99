@@ -37,6 +37,7 @@
     <Compile Include="MailSender.cs" />
     <Compile Include="RegisterEventArgs.cs" />
     <Compile Include="SMSSender.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
